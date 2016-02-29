@@ -1,0 +1,133 @@
+<div id="content">
+<div class="col-md-12">
+	<ul class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		<li>{{filters.category}}</li>
+	</ul>
+</div>
+
+<div class="col-md-3">
+	<!-- *** MENUS AND FILTERS ***
+ _________________________________________________________ -->
+	<div class="panel panel-default sidebar-menu">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Categories</h3>
+		</div>
+
+		<div class="panel-body">
+			<ul class="nav nav-pills nav-stacked category-menu">
+				<li ng-repeat="category in categories">
+				<a href="#category">{{category.category}}</a>
+					<ul>
+						<li ng-repeat="subCategory in category.values"
+							ng-click="filters.category = subCategory.name"><a
+							href="#category">{{subCategory.name}}</a></li>
+
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="panel panel-default sidebar-menu">
+
+		<div class="panel-body">
+
+			<form>
+				<div class="form-group">
+				
+				     <div class="checkbox" ng-repeat="color in colors">
+	                    <label>
+	                      <input type="checkbox" ng-model="colorsSelected[$index].value" ng-change="createFilter(colorsSelected[$index].value,color.name)"> <span class="colour" ng-style="{'background-color': color.code}" ></span>  {{color.name}}
+	                     </label>
+                     </div>
+                </div>
+
+			</form>
+
+		</div>
+	</div>
+
+	<!-- *** MENUS AND FILTERS END *** -->
+
+	<div class="banner">
+		<a href="#"> <img ng-src="{{contextPath}}/assets/img/banner.jpg" alt="sales 2014"
+			class="img-responsive">
+		</a>
+	</div>
+</div>
+
+<div class="col-md-9">
+	<div class="box">
+		<h4>{{filters.category}}</h4>
+	</div>
+
+	<div class="row products">
+		<div class="col-md-4 col-sm-6"
+			ng-repeat="product in products |filter:filters.category |customFilter:filters |paginate:rowsPerPage" on-finish-render="">
+			<div class="product">
+				<div class="flip-container">
+					<div class="flipper">
+						<div class="front">
+							<a href="" ng-click="viewDetails(product.id)"> <img ng-src="{{contextPath}}/assets/img/product1.jpg"
+								alt="" class="img-responsive">
+							</a>
+						</div>
+						<div class="back">
+							<a href="" ng-click="viewDetails(product.id)"> <img ng-src="{{contextPath}}/assets/img/product3_2.jpg"
+								alt="" class="img-responsive">
+							</a>
+						</div>
+					</div>
+				</div>
+				<a href="" ng-click="viewDetails(product.id)" class="invisible"> <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
+				</a>
+				<div class="text">
+					<p><h3>{{product.name}}</h3>
+					<h3>
+						<a href="" ng-click="viewDetails(product.id)">{{product.description}}</a>
+					</h3>
+					<p>{{product.category}}</p>
+					<p class="price">{{product.price | currency}}</p>
+				</div>
+				<!-- /.text -->
+			</div>
+			<!-- /.product -->
+		</div>
+		<!-- /.col-md-4 -->
+	</div>
+	<!-- /.products -->
+
+	
+	<div class="pages">
+		<paginator></paginator>
+	</div>
+
+
+</div>
+<!-- /.col-md-9 -->
+</div>
+
+<script type="text/ng-template" id="paginationControl.html">
+    <ul class="pagination">
+        <li ng-click="paginator.firstPage()" ng-class="paginator.isFirstPage() && 'disabled'">
+            <a>&laquo;</a>
+        </li>
+        <li ng-click="paginator.perviousPage()" ng-class="paginator.isFirstPage() && 'disabled'">
+            <a>&laquo;</a>
+        </li>
+        <li ng-click="paginator.setPage(i)" ng-repeat="i in [] | forLoop:paginator.lowerLimit():paginator.pageCount() | limitTo : paginator.limitPerPage" ng-class="paginator.page==i && 'active'"> 
+            <a> 
+                <i>{{i+1}}</i> 
+            </a> 
+        </li>
+        <li ng-click="paginator.nextPage()" ng-class="paginator.isLastPage() && 'disabled'">
+            <a>&raquo; </a>
+        </li>
+        <li ng-click="paginator.lastPage()" ng-class="paginator.isLastPage() && 'disabled'">
+            <a>&raquo;</a>
+        </li>
+    </ul>
+  </script>
