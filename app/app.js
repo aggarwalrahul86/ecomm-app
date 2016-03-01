@@ -1,33 +1,102 @@
-var app = angular.module("myapp", [ 'ngRoute','angulike','imageZoomApp']);
-app.config([ '$routeProvider', function($routeProvider) {
+var app = angular.module("myapp", ['ui.router','angulike','imageZoomApp','ncy-angular-breadcrumb']);
+
+app.config(function($stateProvider, $urlRouterProvider) {
 	
-	$routeProvider.when('/Home', {
-		templateUrl : 'app/components/home/HomePage.html',
-		controller : 'ProductController'
-	}).
+	$stateProvider
+	  .state('Home', {
+	    url: '/Home',
+	    templateUrl: 'app/components/home/HomePage.html',
+	    controller: 'ProductController',
+	    ncyBreadcrumb: {
+	        label: 'Home page'
+	      }
+	  })
+	  .state('Contact', {
+	    url: '/Contact',
+	    templateUrl: 'app/components/contact/contact.html',
+		controller: 'ContactController',
+		  ncyBreadcrumb: {
+			    label: 'Contact page'
+			  }
+	  })
+	  .state('Category', {
+	    url: '/category',
+	    templateUrl: 'app/components/store/category.html',
+		controller: 'ProductController',
+		  ncyBreadcrumb: {
+			    label: 'Products'
+			  }
+	  })
+	  .state('Detail', {
+	    url: '/detail/:productID',
+	    templateUrl: 'app/components/store/detail.html',
+		controller: 'ProductDetailController',
+		resolve: {
+            product: function($stateParams) {
+            	console.log("hello"+$stateParams.productID);
+                return {productID: $stateParams.productID};
+            }
+        },
+        ncyBreadcrumb: {
+		    label: '{{product.productID}}'
+		  }
+	  })
+	  .state('Cart', {
+	    url: '/cart',
+	    templateUrl: 'app/components/cart/cart.html',
+		controller: 'CartController',
+		  ncyBreadcrumb: {
+			    label: 'Your Cart'
+			  }
+	  })
+	  .state('Checkout', {
+	    url: '/checkout',
+	    templateUrl: 'app/components/cart/checkout.html',
+		controller: 'CartController',
+		redirectTo: 'Checkout.Address',
+		  ncyBreadcrumb: {
+			    label: 'Checkout Cart'
+			  }
+	  })
+	  .state('Checkout.Address', {
+	    url: '/checkoutAddress',
+	    templateUrl: 'app/components/cart/checkoutAddress.html',
+		  ncyBreadcrumb: {
+			    label: 'Delivery Address'
+			  }
+	  })
+	  .state('Checkout.Delivery', {
+	    url: '/checkoutDelivery',
+	    templateUrl: 'app/components/cart/checkoutDelivery.html'
+	  })
+	  .state('Checkout.Payment', {
+	    url: '/checkoutPayment',
+	    templateUrl: 'app/components/cart/checkoutPayment.html',
+		  ncyBreadcrumb: {
+			    label: 'Payment Method'
+			  }
+	  })
+	  .state('Checkout.OrderReview', {
+	    url: '/checkoutOrderReview',
+	    templateUrl: 'app/components/cart/checkoutOrderreview.html',
+		  ncyBreadcrumb: {
+			    label: 'Review Order'
+			  }
+	  });
+	
+	// if none of the above states are matched, use this as the fallback
+	$urlRouterProvider.otherwise('/Home');
+	
+});
 
-	when('/Contact', {
-		templateUrl : 'app/components/contact/contact.html',
-		controller : 'ContactController'
-	}).
-
-	when('/category', {
-		templateUrl : 'app/components/store/category.html',
-		controller : 'ProductController'
-	}).
-	when('/detail/:productID', {
-		templateUrl : 'app/components/store/detail.html',
-		controller : 'ProductDetailController'
-	}).
-	when('/cart', {
-		templateUrl : 'app/components/cart/cart.html',
-		controller : 'cartCartController'
-	}).
-
-	otherwise({
-		redirectTo : '/Home'
-	});
-} ]);
+app.run(['$rootScope', '$state', function($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function(evt, to, toParams) {
+      if (to.redirectTo) {
+        evt.preventDefault();
+        $state.go(to.redirectTo, toParams)
+      }
+    });
+}]);
 
 app.factory('filters', function() {
 	return {

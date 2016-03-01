@@ -36,7 +36,8 @@
 
 <!-- AngularJS -->
 <script src="assets/js/angular.min.js"></script>
-<script src="assets/js/angular-route.min.js"></script>
+<script src="assets/js/angular-ui-router.min.js"></script>
+<script src="assets/js/angular-breadcrumb.min.js"></script>
 
 
 </head>
@@ -113,7 +114,7 @@
 		<div class="container">
 			<div class="navbar-header">
 
-				<a class="navbar-brand home" href="index.html"
+				<a class="navbar-brand home" href="#Home"
 					data-animate-hover="bounce"> <!--  <img src="../../..assets/img/logo.png" alt="Obaju logo" class="hidden-xs">
                     <img src="../../..assets/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Frame Your Memories</span> -->
 				</a>
@@ -134,7 +135,7 @@
 			<div class="navbar-collapse collapse" id="navigation">
 
 				<ul class="nav navbar-nav navbar-left">
-					<li class="active"><a href="index.html">Home</a></li>
+					<li class="active"><a href="#Home">Home</a></li>
 					<li class="dropdown yamm-fw"><a href="#category"
 						class="dropdown-toggle" data-toggle="dropdown"
 						data-hover="dropdown">Categories <b class="caret"></b></a>
@@ -205,10 +206,7 @@
 
 
 	<div id="all">
-
-
-
-		<div ng-view></div>
+		<div ui-view></div>
 
 		<!-- /#content -->
 
@@ -328,7 +326,8 @@
 
 				</div>
 				<!-- /.row -->
-
+				</div>
+				</div>
 			</div>
 			<!-- /.container -->
 		</div>

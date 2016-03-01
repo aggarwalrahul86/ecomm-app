@@ -1,0 +1,25 @@
+<div class="content">
+	<div class="row">
+		<div class="col-sm-5">
+			<div class="box payment-method">
+				<h4>
+					<input type="radio" name="payment" value="payment3"> Cash
+					on delivery
+				</h4>
+				<p>You pay only when you get the delivery.</p>
+			</div>
+		</div>
+	</div>
+	<!-- /.row -->
+
+</div>
+<!-- /.content -->
+
+<div class="box-footer">
+	<div class="pull-left">
+		<a ui-sref="Checkout.Address" class="btn btn-default" ng-click="setUpTabs(TabNumber-1)"><i class="fa fa-chevron-left"></i>Back</a>
+	</div>
+	<div class="pull-right">
+		<a ui-sref="Checkout.OrderReview" class="btn btn-primary" ng-click="setUpTabs(TabNumber+1)"><i class="fa fa-chevron-right"></i>Continue </a>
+	</div>
+</div>

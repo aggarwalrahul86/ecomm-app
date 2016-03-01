@@ -1,0 +1,7 @@
+{
+	"tabs":[
+			{"tabName":"Address", "tabDescription":"Delivery Address"},
+			{"tabName":"Payment", "tabDescription":"Payment Method"},
+			{"tabName":"OrderReview", "tabDescription":"Order Review"}
+		]
+}

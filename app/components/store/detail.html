@@ -1,49 +1,9 @@
         <div id="content">
             <div class="container">
 
+                <div ncy-breadcrumb></div>
+
                 <div class="col-md-12">
-                
-                	<ul class="breadcrumb">
-						<li><a href="#">Home</a></li>
-						<li><a href="#category">{{product.category}}</a></li>
-						<li>{{product.name}}</li>
-					</ul>
-                </div>
-
-                <div class="col-md-3">
-                    <!-- *** MENUS AND FILTERS ***
- _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
-                        </div>
-
-                        <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked category-menu">
-                                <li ng-repeat="category in categories">
-									<a href="#category">{{category.category}}</a>
-									<ul>
-										<li ng-repeat="subCategory in category.values"
-											ng-click="filters.category = subCategory.name" ng-class="{'active': subCategory.name == product.category}"><a
-											href="#category">{{subCategory.name}}
-											</a></li>
-				
-									</ul>
-								</li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-                    <div class="banner">
-                        <a href="#">
-                            <img ng-src="{{contextPath}}/assets/img/banner.jpg" alt="sales 2014" class="img-responsive">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
 
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
@@ -68,7 +28,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="box">
-                                <h1 class="text-center">{{product.id}}</h1>
+                                <h1 class="text-center">{{product.name}}</h1>
                                 <p class="goToDescription"><a href="#details" class="scroll-to"> {{product.description}}</a>
                                 </p>
                                 <p class="price">{{product.price | currency}}</p>

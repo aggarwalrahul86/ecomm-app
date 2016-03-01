@@ -94,22 +94,22 @@
                                 <div class="flip-container">
                                     <div class="flipper">
                                         <div class="front">
-                                            <a href="#detail">
+                                            <a  ui-sref="Detail({productID: product.id})">
                                                 <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
-                                            <a href="#detail">
+                                            <a  ui-sref="Detail({productID: product.id})">
                                                 <img ng-src="{{contextPath}}/assets/img/product3_2.jpg" alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#detail" class="invisible">
+                                <a  ui-sref="Detail({productID: product.id})" class="invisible">
                                     <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
-                                    <h3><a href="" ng-click="viewDetails(product.id)" >{{product.description}}</a></h3>
+                                    <h3>< ui-sref="Detail({productID: product.id})" >{{product.description}}</a></h3>
                                     <p>{{product.category}}</p>
                                     <p class="price">{{product.price}}</p>
                                 </div>

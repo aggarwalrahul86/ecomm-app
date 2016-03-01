@@ -1,0 +1,69 @@
+
+        <div id="content">
+            <div class="container">
+
+                <div ncy-breadcrumb></div>
+
+                <div class="col-md-9" id="checkout">
+
+                    <div class="box">
+                        <form method="post" action="checkout2.html">
+                            <h1>Checkout</h1>
+                            <ul class="nav nav-pills nav-justified">
+                                <li ng-class="{active: $index == TabNumber}" ng-repeat="tab in tabs" ng-click="setUpTabs($index)">
+                                	<a ui-sref=".{{tab.tabName}}">
+                                		<i class="fa fa-map-marker"></i><br>{{tab.tabDescription}}
+                                	</a>
+                                </li>
+                            </ul>
+
+                            <div ui-view></div>
+                        </form>
+                    </div>
+                    <!-- /.box -->
+
+
+                </div>
+                <!-- /.col-md-9 -->
+
+                <div class="col-md-3">
+
+                    <div class="box" id="order-summary">
+                        <div class="box-header">
+                            <h3>Order summary</h3>
+                        </div>
+                        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+                        <div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>Order subtotal</td>
+										<th>{{cart.getTotalPrice() | currency}}</th>
+									</tr>
+									<tr>
+										<td>Shipping and handling</td>
+										<th>$0.00</th>
+									</tr>
+									<tr>
+										<td>Tax</td>
+										<th>$0.00</th>
+									</tr>
+									<tr class="total">
+										<td>Total</td>
+										<th>{{cart.getTotalPrice() | currency}}</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+                    </div>
+
+                </div>
+                <!-- /.col-md-3 -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+        

@@ -2,7 +2,6 @@ app.controller("ProductController", function($scope,$http,filters,productService
 	
 	$scope.filters = filters;
 	$scope.rowsPerPage = 50;
-	$scope.contextPath = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("#"));
 	
 	
 	$scope.colorsSelected = [];
@@ -64,7 +63,6 @@ app.controller("ProductController", function($scope,$http,filters,productService
 	    }
     
     $http.get("app/shared/json/ProductConfig.json").success( function(response) {
-    	console.log("Checking Prod",response);
         $scope.products = response;
      });
     

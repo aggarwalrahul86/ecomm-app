@@ -30,9 +30,9 @@ app
 					$scope.cart = DataService.cart;
 
 					// use routing to pick the selected product
-					/*if ($routeParams.productSku != null) {
+					/*if ($stateParams.productSku != null) {
 						$scope.product = $scope.store
-								.getProduct($routeParams.productSku);
+								.getProduct($stateParams.productSku);
 					}*/
 
 				});
