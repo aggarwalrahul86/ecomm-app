@@ -1,7 +1,6 @@
-[
-	{
-		"author":"Home",
-		"title":"Frame your memories",
-		"registrationMessage":""
-	},{}
-]
+{
+	"author":"Home",
+	"title":"Frame your memories",
+	"registrationMessage":"",
+	"appStyle":"default"
+}

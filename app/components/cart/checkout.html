@@ -9,7 +9,7 @@
                     <div class="box">
                         <form method="post" action="checkout2.html">
                             <h1>Checkout</h1>
-                            <ul class="nav nav-pills nav-justified">
+                            <ul class="nav nav-pills nav-justified" id="checkoutTab">
                                 <li ng-class="{active: $index == TabNumber}" ng-repeat="tab in tabs" ng-click="setUpTabs($index)">
                                 	<a ui-sref=".{{tab.tabName}}">
                                 		<i class="fa fa-map-marker"></i><br>{{tab.tabDescription}}

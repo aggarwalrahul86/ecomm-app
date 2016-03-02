@@ -1,6 +1,5 @@
 <div id="content">
-<div ncy-breadcrumb></div>
-
+<div class="container">
 <div class="col-md-3">
 	<!-- *** MENUS AND FILTERS ***
  _________________________________________________________ -->
@@ -55,8 +54,7 @@
 </div>
 
 <div class="col-md-9">
-	<div class="box">
-		<h4>{{filters.category}}</h4>
+	<div class="box" ncy-breadcrumb>
 	</div>
 
 	<div class="row products">
@@ -104,7 +102,7 @@
 </div>
 <!-- /.col-md-9 -->
 </div>
-
+</div>
 <script type="text/ng-template" id="paginationControl.html">
     <ul class="pagination">
         <li ng-click="paginator.firstPage()" ng-class="paginator.isFirstPage() && 'disabled'">

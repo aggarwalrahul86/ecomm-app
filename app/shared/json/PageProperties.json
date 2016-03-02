@@ -1,9 +1,20 @@
-[
-	{
-		"pageName":"Home",
-		"title":"Frame your memories",
-		"description": "Frame Home Page",
-		"keywords": "",
-		
-	},{}
-]
+{
+	"mainSliders":[
+						{
+							"source":"main-slider1.jpg",
+							"name":"Slider1"
+						},
+						{
+							"source":"main-slider2.jpg",
+							"name":"Slider2"
+						},
+						{
+							"source":"main-slider3.jpg",
+							"name":"Slider3"
+						},
+						{
+							"source":"main-slider4.jpg",
+							"name":"Slider4"
+						}
+					]	
+}

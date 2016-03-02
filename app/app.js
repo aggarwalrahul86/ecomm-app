@@ -24,21 +24,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    templateUrl: 'app/components/store/category.html',
 		controller: 'ProductController',
 		  ncyBreadcrumb: {
-			    label: 'Products'
+			    label: 'Product List'
 			  }
 	  })
 	  .state('Detail', {
 	    url: '/detail/:productID',
 	    templateUrl: 'app/components/store/detail.html',
 		controller: 'ProductDetailController',
-		resolve: {
-            product: function($stateParams) {
-            	console.log("hello"+$stateParams.productID);
-                return {productID: $stateParams.productID};
-            }
-        },
         ncyBreadcrumb: {
-		    label: '{{product.productID}}'
+		    label: 'Product Detail'
 		  }
 	  })
 	  .state('Cart', {

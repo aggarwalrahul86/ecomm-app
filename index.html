@@ -24,7 +24,7 @@
 <link href="assets/css/owl.theme.css" rel="stylesheet">
 
 <!-- theme stylesheet -->
-<link href="assets/css/style.default.css" rel="stylesheet"
+<link ng-href="assets/css/style.{{appStyle}}.css" rel="stylesheet"
 	id="theme-stylesheet">
 
 <!-- your stylesheet with modifications -->
@@ -39,7 +39,6 @@
 <script src="assets/js/angular-ui-router.min.js"></script>
 <script src="assets/js/angular-breadcrumb.min.js"></script>
 
-
 </head>
 
 <body>
@@ -47,12 +46,11 @@
  _________________________________________________________ -->
 	<div id="top">
 		<div class="container">
-			<div class="col-md-6 offer" data-animate="fadeInDown">
-				<a href="#" class="btn btn-success btn-sm"
-					data-animate-hover="shake">Offer of the day</a> <a href="#">Get
+			<div class="col-md-6 offer">
+				<a href="#" class="btn btn-success btn-sm">Offer of the day</a> <a href="#">Get
 					flat 35% off on orders over $50!</a>
 			</div>
-			<div class="col-md-6" data-animate="fadeInDown">
+			<div class="col-md-6">
 				<ul class="menu">
 					<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 					</li>
@@ -114,8 +112,7 @@
 		<div class="container">
 			<div class="navbar-header">
 
-				<a class="navbar-brand home" href="#Home"
-					data-animate-hover="bounce"> <!--  <img src="../../..assets/img/logo.png" alt="Obaju logo" class="hidden-xs">
+				<a class="navbar-brand home" href="#Home"> <!--  <img src="../../..assets/img/logo.png" alt="Obaju logo" class="hidden-xs">
                     <img src="../../..assets/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Frame Your Memories</span> -->
 				</a>
 				<div class="navbar-buttons">
@@ -224,44 +221,6 @@
 							<li><a href="faq.html">FAQ</a></li>
 							<li><a href="#Contact">Contact us</a></li>
 						</ul>
-
-						<hr>
-
-						<h4>User section</h4>
-
-						<ul>
-							<li><a href="#" data-toggle="modal"
-								data-target="#login-modal">Login</a></li>
-							<li><a href="register.html">Regiter</a></li>
-						</ul>
-
-						<hr class="hidden-md hidden-lg hidden-sm">
-
-					</div>
-					<!-- /.col-md-3 -->
-
-					<div class="col-md-3 col-sm-6">
-
-						<h4>Top categories</h4>
-
-						<h5>Men</h5>
-
-						<ul>
-							<li><a href="#category">T-shirts</a></li>
-							<li><a href="#category">Shirts</a></li>
-							<li><a href="#category">Accessories</a></li>
-						</ul>
-
-						<h5>Ladies</h5>
-						<ul>
-							<li><a href="#category">T-shirts</a></li>
-							<li><a href="#category">Skirts</a></li>
-							<li><a href="#category">Pants</a></li>
-							<li><a href="#category">Accessories</a></li>
-						</ul>
-
-						<hr class="hidden-md hidden-lg">
-
 					</div>
 					<!-- /.col-md-3 -->
 
@@ -274,9 +233,9 @@
 							<br> <strong>India</strong>
 						</p>
 
+						<hr>
+						
 						<a href="#Contact">Go to contact page</a>
-
-						<hr class="hidden-md hidden-lg">
 
 					</div>
 					<!-- /.col-md-3 -->
@@ -301,8 +260,10 @@
 							</div>
 							<!-- /input-group -->
 						</form>
-
-						<hr>
+						
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
 
 						<h4>Stay in touch</h4>
 

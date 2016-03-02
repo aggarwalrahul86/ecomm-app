@@ -3,17 +3,8 @@
             <div class="container">
                 <div class="col-md-12">
                     <div id="main-slider">
-                        <div class="item">
-                            <img ng-src="{{contextPath}}/assets/img/main-slider1.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" ng-src="{{contextPath}}/assets/img/main-slider2.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" ng-src="{{contextPath}}/assets/img/main-slider3.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" ng-src="{{contextPath}}/assets/img/main-slider4.jpg" alt="">
+                        <div class="item" ng-repeat = "slider in mainSliders">
+                            <img ng-src="{{contextPath}}/assets/img/{{slider.source}}" alt="" class="img-responsive">
                         </div>
                     </div>
                     <!-- /#main-slider -->
@@ -109,9 +100,9 @@
                                     <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
-                                    <h3>< ui-sref="Detail({productID: product.id})" >{{product.description}}</a></h3>
+                                    <h3><a ui-sref="Detail({productID: product.id})" >{{product.description}}</a></h3>
                                     <p>{{product.category}}</p>
-                                    <p class="price">{{product.price}}</p>
+                                    <p class="price">{{product.price | currency}}</p>
                                 </div>
                                 <!-- /.text -->
                             </div>
