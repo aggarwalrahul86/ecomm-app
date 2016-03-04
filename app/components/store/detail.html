@@ -7,40 +7,9 @@
 
                     <div class="row" id="productMain">                        
                         <div class="col-sm-6">
-                            <div class="box">
-                                <h1 class="text-center">{{product.name}}</h1>
-                                <p class="goToDescription">{{product.description}}
-                                </p>
-                                <p class="price">{{product.price | currency}}</p>
-
-                                <p class="text-center buttons">
-                                    <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
-                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
-                                </p>
-                          </div>
-
-                            <div class="row" id="thumbs">
-                                <div class="col-xs-4">
-                                    <a href="../../../assets/img/detailbig1.jpg" class="thumb">
-                                        <img ng-src="{{contextPath}}/assets/img/detailsquare.jpg" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="../../../assets/img/detailbig2.jpg" class="thumb">
-                                        <img ng-src="{{contextPath}}/assets/img/detailsquare2.jpg" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="../../../assets/img/detailbig3.jpg" class="thumb">
-                                        <img ng-src="{{contextPath}}/assets/img/detailsquare3.jpg" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                        
-                            <div id="mainImage">
-                            <zoom mark-height="70" mark-width="70" src="{{src}}" zoom-lvl="{{zoomLvl}}"></zoom>
+                        	<div id="mainImage">
+                            	<!-- <zoom mark-height="70" mark-width="70" src="{{src}}" zoom-lvl="{{zoomLvl}}"></zoom> -->
+                            	<img ng-src="{{imagePath}}{{product.id}}{{imageExtension}}" alt="" class="img-responsive">
                             </div>
 
                             <div class="ribbon sale">
@@ -54,7 +23,36 @@
                                 <div class="ribbon-background"></div>
                             </div>
                             <!-- /.ribbon -->
-
+                          <!-- <div class="row" id="thumbs">
+                              <div class="col-xs-4">
+                                  <a href="../../../assets/img/detailbig1.jpg" class="thumb">
+                                      <img ng-src="{{contextPath}}/assets/img/detailsquare.jpg" alt="" class="img-responsive">
+                                  </a>
+                              </div>
+                              <div class="col-xs-4">
+                                  <a href="../../../assets/img/detailbig2.jpg" class="thumb">
+                                      <img ng-src="{{contextPath}}/assets/img/detailsquare2.jpg" alt="" class="img-responsive">
+                                  </a>
+                              </div>
+                              <div class="col-xs-4">
+                                  <a href="../../../assets/img/detailbig3.jpg" class="thumb">
+                                      <img ng-src="{{contextPath}}/assets/img/detailsquare3.jpg" alt="" class="img-responsive">
+                                  </a>
+                              </div>
+                          </div> -->
+                        </div>
+                        <div class="col-sm-6">
+	                        <div class="box">
+	                                <h3 class="text-center">{{product.name}}</h1>
+		                            <a href="" ng-click="scrollTo('details')">{{product.shortDescription}}</a>
+	                                <h4 class="text-center">{{product.price | currency}}</h4>
+		                            <hr>                                
+	
+	                                <p class="text-center buttons">
+	                                    <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
+	                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
+	                                </p>
+	                          </div>
                         </div>
 
                     </div>
@@ -63,23 +61,15 @@
                     <div class="box" id="details">
                        
                             <h4>Product details</h4>
-                            <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-                            <h4>Material & care</h4>
-                            <ul>
-                                <li>Polyester</li>
-                                <li>Machine wash</li>
-                            </ul>
-                            <h4>Size & Fit</h4>
-                            <ul>
-                                <li>Regular fit</li>
-                                <li>The model (height 5'8" and chest 33") is wearing a size S</li>
-                            </ul>
-
+                            <p>{{product.description}}</p>
                             <blockquote>
-                                <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em>
-                                </p>
+                            <h4>Features:</h4>
+                            <ul>
+                            	<li ng-repeat = "feature in product.features">
+                            		{{feature}}
+                            	</li>
+                            </ul>
                             </blockquote>
-
                             <hr>
                             <div class="social">
                                 <h4>Show it to your friends</h4>
@@ -95,9 +85,10 @@
                  		   </div>
 
                 </div>
-                <!-- /.col-md-9 -->
+                <!-- box -->
             </div>
-            <!-- /.container -->
+            <!-- /.col-md-12 -->        
         </div>
-        <!-- /#content -->
-
+        <!-- /.container -->
+</div>
+<!-- /#content -->

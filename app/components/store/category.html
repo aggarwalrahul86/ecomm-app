@@ -60,22 +60,8 @@
 	<div class="row products">
 		<div class="col-md-4 col-sm-6"
 			ng-repeat="product in products |filter:filters.category |customFilter:filters |paginate:rowsPerPage" on-finish-render="">
-			<div class="product">
-				<div class="flip-container">
-					<div class="flipper">
-						<div class="front">
-							<a  ui-sref="Detail({productID: product.id})"> <img ng-src="{{contextPath}}/assets/img/product1.jpg"
-								alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="back">
-							<a  ui-sref="Detail({productID: product.id})"> <img ng-src="{{contextPath}}/assets/img/product3_2.jpg"
-								alt="" class="img-responsive">
-							</a>
-						</div>
-					</div>
-				</div>
-				<a  ui-sref="Detail({productID: product.id})" class="invisible"> <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
+			<div class="product">				
+				<a  ui-sref="Detail({productID: product.id})"> <img ng-src="{{imagePath}}{{product.id}}{{imageExtension}}" alt="" class="img-responsive">
 				</a>
 				<div class="text">
 					<p><h3>{{product.name}}</h3>

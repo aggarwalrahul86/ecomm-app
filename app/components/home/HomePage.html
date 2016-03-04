@@ -1,16 +1,16 @@
          <div id="content">
 
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-9">
                     <div id="main-slider">
                         <div class="item" ng-repeat = "slider in mainSliders">
-                            <img ng-src="{{contextPath}}/assets/img/{{slider.source}}" alt="" class="img-responsive">
+                            <img ng-src="{{bannerImagePath}}{{slider.source}}" alt="" class="img-responsive">
                         </div>
                     </div>
                     <!-- /#main-slider -->
                 </div>
             </div>
-
+            
             <!-- *** ADVANTAGES HOMEPAGE ***
  _________________________________________________________ -->
             <div id="advantages">
@@ -82,22 +82,8 @@
                      <div class="product-slider">
                         <div class="item" ng-repeat = "product in products" on-finish-render="">
                             <div class="product">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a  ui-sref="Detail({productID: product.id})">
-                                                <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a  ui-sref="Detail({productID: product.id})">
-                                                <img ng-src="{{contextPath}}/assets/img/product3_2.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a  ui-sref="Detail({productID: product.id})" class="invisible">
-                                    <img ng-src="{{contextPath}}/assets/img/product1.jpg" alt="" class="img-responsive">
+                                <a  ui-sref="Detail({productID: product.id})">
+                                    <img ng-src="{{imagePath}}{{product.id}}{{imageExtension}}" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
                                     <h3><a ui-sref="Detail({productID: product.id})" >{{product.description}}</a></h3>

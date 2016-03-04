@@ -593,10 +593,6 @@ h1 {
 #content .pages .pagination {
   text-align: center;
 }
-#content #mainImage {
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-} 
 #content #productMain {
   margin-bottom: 30px;
 }

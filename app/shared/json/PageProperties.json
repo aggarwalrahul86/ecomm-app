@@ -1,20 +1,16 @@
 {
 	"mainSliders":[
 						{
-							"source":"main-slider1.jpg",
-							"name":"Slider1"
+							"source":"banner1.jpg",
+							"name":"Banner1"
 						},
 						{
-							"source":"main-slider2.jpg",
-							"name":"Slider2"
+							"source":"banner2.jpg",
+							"name":"Banner2"
 						},
 						{
-							"source":"main-slider3.jpg",
-							"name":"Slider3"
-						},
-						{
-							"source":"main-slider4.jpg",
-							"name":"Slider4"
+							"source":"banner3.jpg",
+							"name":"Banner4"
 						}
 					]	
 }
