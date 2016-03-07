@@ -51,10 +51,15 @@
 					flat 35% off on orders over $50!</a>
 			</div>
 			<div class="col-md-6">
+				<span class="message">{{visitor.message}}</span>
 				<ul class="menu">
-					<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+					<!-- <li><a href="#">{{visitor.message}}</a>
+					</li> -->
+					<li ng-if="visitor.isCustomer == 'false'"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 					</li>
-					<li><a href="register.html">Register</a></li>
+					<li ng-if="visitor.isCustomer == 'true'"><a href="#" data-toggle="modal" data-target="#login-modal">Logout</a>
+					</li>
+					<li ng-if="visitor.isCustomer == 'false'"><a href="register.html">Register</a></li>
 					<li><a href="#Contact">Contact</a></li>
 					<li><a href="#">Recently viewed</a></li>
 				</ul>
@@ -71,23 +76,23 @@
 						<h4 class="modal-title" id="Login">Customer login</h4>
 					</div>
 					<div class="modal-body">
-						<form action="customer-orders.html" method="post">
+						
 							<div class="form-group">
-								<input type="text" class="form-control" id="email-modal"
+								<input type="text" ng-model = "user.username" class="form-control" id="email-modal"
 									placeholder="email">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="password-modal"
+								<input type="password" ng-model = "user.password" class="form-control" id="password-modal"
 									placeholder="password">
 							</div>
 
 							<p class="text-center">
-								<button class="btn btn-primary">
+								<button class="btn btn-primary" ng-click ="authenticate()">
 									<i class="fa fa-sign-in"></i> Log in
 								</button>
 							</p>
 
-						</form>
+						
 
 						<p class="text-center text-muted">Not registered yet?</p>
 						<p class="text-center text-muted">

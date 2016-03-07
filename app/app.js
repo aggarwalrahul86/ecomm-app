@@ -1,7 +1,10 @@
 var app = angular.module("myapp", ['ui.router','angulike','imageZoomApp','ncy-angular-breadcrumb']);
 
+
+
+
 app.config(function($stateProvider, $urlRouterProvider) {
-	
+
 	$stateProvider
 	  .state('Home', {
 	    url: '/Home',
