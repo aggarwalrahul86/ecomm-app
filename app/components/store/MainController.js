@@ -11,6 +11,11 @@ app.controller("MainController", function($scope, $http, filters, productService
 							"isCustomer" : "false",
 							"message":"Welcome Guest"};
 					
+	
+					$scope.logout = function(){
+						$scope.visitor.isCustomer = "false" ;
+						$scope.visitor.message = " Welcome Guest";
+					}
 					
 					$scope.authenticate = function(){
 						

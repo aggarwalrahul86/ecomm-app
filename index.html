@@ -51,13 +51,13 @@
 					flat 35% off on orders over $50!</a>
 			</div>
 			<div class="col-md-6">
-				<span class="message">{{visitor.message}}</span>
+				
 				<ul class="menu">
-					<!-- <li><a href="#">{{visitor.message}}</a>
-					</li> -->
+					<li><span class="message">{{visitor.message}}</span>
+					</li>
 					<li ng-if="visitor.isCustomer == 'false'"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 					</li>
-					<li ng-if="visitor.isCustomer == 'true'"><a href="#" data-toggle="modal" data-target="#login-modal">Logout</a>
+					<li ng-if="visitor.isCustomer == 'true'"><a ng-click = "logout()" href="#">Logout</a>
 					</li>
 					<li ng-if="visitor.isCustomer == 'false'"><a href="register.html">Register</a></li>
 					<li><a href="#Contact">Contact</a></li>
