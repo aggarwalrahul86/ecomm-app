@@ -81,6 +81,7 @@ h1 {
   font-weight: 300;
   margin-bottom: 20px;
 }
+
 .navbar .yamm-content h5 {
   font-size: 18px;
   font-weight: 400;
@@ -1710,4 +1711,16 @@ div.social > div{
 .payment-method{
 	background-color: #9a9d8c;
 	color: #fff;
+}
+
+#all {
+	margin-top: 135px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 2147483647;
+	width: 100%;
 }

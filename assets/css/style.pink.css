@@ -1669,3 +1669,15 @@ address {
   color: #fff;
   text-decoration: none;
 }
+
+#all {
+	margin-top: 135px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 2147483647;
+	width: 100%;
+}
