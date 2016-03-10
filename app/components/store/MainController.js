@@ -1,4 +1,4 @@
-app.controller("MainController", function($scope, $http, filters, productService, DataService, $location, $anchorScroll) {
+app.controller("MainController", function($scope, $http, filters, productService, DataService, $location, $anchorScroll,AuthService,Session) {
 
 					$scope.appStyle = "default";
 					$scope.filters = filters;
@@ -10,23 +10,22 @@ app.controller("MainController", function($scope, $http, filters, productService
 					$scope.visitor ={
 							"isCustomer" : "false",
 							"message":"Welcome Guest"};
-					
-	
+			
+					if(Session.data.username !=null && Session.data.password!=null){
+						$scope.visitor.isCustomer = "true" ;
+						$scope.visitor.message = "Welcome "+ Session.data.username;
+					}
+
 					$scope.logout = function(){
+						Session.destroy();
 						$scope.visitor.isCustomer = "false" ;
 						$scope.visitor.message = " Welcome Guest";
 					}
 					
-					$scope.authenticate = function(){
-						
-						
-						$http.post("/api/authenticate/ecommdb", $scope.user,{
-					        headers: { 'Content-Type': 'application/json'}
-					    })
-							.success(function (data, status, headers, config) {
-								console.log("Response Recieved",data.status);
-								
+					$scope.authenticate = function(){	
+						AuthService.login($scope.user).success(function (data, status, headers, config) {
 								if(data.status == "Success"){
+									Session.create($scope.user.username,$scope.user.password);
 									$("#login-modal").modal('hide');
 									$scope.visitor.isCustomer = "true" ;
 									$scope.visitor.message = "Login Successful.Welcome "+ $scope.user.username;
@@ -42,7 +41,6 @@ app.controller("MainController", function($scope, $http, filters, productService
 								$scope.visitor.message = "Login is not successful. Welcome Guest";
 					        	 console.log("error Response ", data);
 					        });
-						
 					}
 
 					$scope.myModel = {

@@ -1,6 +1,4 @@
-var app = angular.module("myapp", ['ui.router','angulike','imageZoomApp','ncy-angular-breadcrumb']);
-
-
+var app = angular.module("myapp", ['ui.router','angulike','imageZoomApp','ncy-angular-breadcrumb','ngCookies']);
 
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -85,6 +83,42 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/Home');
 	
 });
+
+app.factory('Session', function ($cookies) {
+	
+	var Session = {
+			
+			data : {
+					   username : $cookies.get('username'),
+					   password : $cookies.get('password')
+					
+			},
+			  create : function (username, password) {
+				// Can save in localstorage or Cookies need to discuss
+				  
+				  Session.data.username = username;
+				  Session.data.password = password;
+			    // Using cookie store for now as cookies are used by most of the website so that it is available to server
+
+			    $cookies.put('username', username);
+			    $cookies.put('password', password);
+			    
+			  },
+			  destroy : function () {
+				  Session.data.username = null;
+				  Session.data.password = null;
+			    $cookies.remove('username');
+			    $cookies.remove('password');
+			  },
+			  saveSession : function (){
+				  //Save session in db need to discuss
+			  }
+			  
+	};
+	
+	return Session;
+  
+	});
 
 app.run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(evt, to, toParams) {
